@@ -78,6 +78,9 @@ fi
 if [[ -z "${WANDB_RUN_ID}" ]]; then
   export WANDB_RUN_ID="$WANDB_NAME-$date"
 fi
+# wandb logging https://wandb.ai/quickstart?product=weave
+export WANDB_API_KEY="<your key here>"
+
 
 PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True" \
 torchrun --nnodes=${NNODE} \

@@ -46,5 +46,3 @@ __pycache__
 
 # macOS
 .DS_Store
-
-train_mycfg.sh
