@@ -6,6 +6,28 @@ A minimal, efficient training framework for Flash Linear Attention models
 
 </div>
 
+## Environment
+
+`transformers`, `torch` requires the latest version
+
+see: setup.py
+
+```py
+python_requires='>=3.10',
+install_requires=[
+    'torch>=2.5',
+    'torchdata',
+    'transformers>=4.45.0',
+    'triton>=3.0',
+    'datasets>=3.1.0',
+    'einops',
+    'ninja',
+    'wandb',
+]
+```
+
+Install `flash-attn` via `pip install flash-attn --no-build-isolation`
+
 ## Usage
 
 To get started, run `bash train.sh -h` to see all available command line options. 
