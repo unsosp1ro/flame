@@ -88,10 +88,12 @@ def main(job_config: JobConfig):
     tokenizer = AutoTokenizer.from_pretrained(job_config.model.tokenizer_path, trust_remote_code=True)
     logger.info(f"{tokenizer}")
     logger.info("Loading dataset...")
+    # load_dataset can't work with symbolic links: https://github.com/huggingface/datasets/issues/6764
+    # Load InternData by using the original absolute path
+    data_files = os.path.join('/cpfs02/puyu/shared/alillm2/alillm2_hdd', '**', '*.jsonl')
     dataset = load_dataset(
-        path=job_config.training.dataset,
-        name=getattr(job_config.training, "dataset_name", None),
-        data_files=getattr(job_config.training, "data_files", None),
+        'json', 
+        data_files=data_files,
         split=job_config.training.dataset_split,
         trust_remote_code=True,
         streaming=job_config.training.streaming

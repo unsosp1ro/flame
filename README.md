@@ -30,9 +30,19 @@ Install `flash-attn` via `pip install .whl`
 
 [flash-attn release page](https://github.com/Dao-AILab/flash-attention/releases)
 
+--- 
+
+You don't need to install `fla`, it imports the local `fla` package.
+
 ## Note
 
 Do not use `export HOME=...` in `train.sh`!
+
+## Convert dcp to hf_ckpt
+
+```sh
+python convert_dcp_to_hf.py --checkpoint exp/intern-1.8B-100B/batch1.seqlen32768.warmup512.update4.steps25600.lr1e-3.varlen.matrix.noshuffle/checkpoint/step-10240/ --path exp/intern-1.8B-100B/batch1.seqlen32768.warmup512.update4.steps25600.lr1e-3.varlen.matrix.noshuffle/hf_ckpt/step-10240/ --config configs/intern_1.8B.json --tokenizer /cpfs02/shared/llmit6/liudawei/models/internlm2-1_8b-mycfg
+```
 
 ## Usage
 
