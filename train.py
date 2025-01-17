@@ -29,7 +29,7 @@ from torchtitan.logging import init_logger, logger
 from torchtitan.parallelisms import ParallelDims
 from torchtitan.profiling import (maybe_enable_memory_snapshot,
                                   maybe_enable_profiling)
-
+from torch import tensor
 
 # Enable debug tracing on failure: httgs://pytorch.org/docs/stable/elastic/errors.html
 @record
