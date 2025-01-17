@@ -30,6 +30,10 @@ Install `flash-attn` via `pip install .whl`
 
 [flash-attn release page](https://github.com/Dao-AILab/flash-attention/releases)
 
+## Note
+
+Do not use `export HOME=...` in `train.sh`!
+
 ## Usage
 
 To get started, run `bash train.sh -h` to see all available command line options. 
