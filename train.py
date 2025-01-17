@@ -88,10 +88,19 @@ def main(job_config: JobConfig):
     tokenizer = AutoTokenizer.from_pretrained(job_config.model.tokenizer_path, trust_remote_code=True)
     logger.info(f"{tokenizer}")
     logger.info("Loading dataset...")
+    
+    # If the dataset folder has no subfolders and is full of jsonl files, 
+    # specify `training.dataset` directly as the dataset path.
+    # Otherwise, specify `training.data_files` as the dataset path, Set `training.dataset` to 'json'
+    data_files = None
+    if getattr(job_config.training, "data_files", None) is not None:
+        # get jsonl files in any level of nested folders
+        data_files = os.path.join(job_config.training.data_files, '**', '*.jsonl')
+        
     dataset = load_dataset(
         path=job_config.training.dataset,
         name=getattr(job_config.training, "dataset_name", None),
-        data_files=getattr(job_config.training, "data_files", None),
+        data_files=data_files,
         split=job_config.training.dataset_split,
         trust_remote_code=True,
         streaming=job_config.training.streaming
