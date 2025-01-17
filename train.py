@@ -116,6 +116,7 @@ def main(job_config: JobConfig):
     )
 
     logger.info(f"Loading model config from {job_config.model.config}")
+    # Use configs/transformer_340M.json format config file by `import fla`
     model_config = AutoConfig.from_pretrained(job_config.model.config)
     # set the model configs from training inputs:
     # 1. norm type to decide which norm layer to use

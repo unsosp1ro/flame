@@ -26,7 +26,9 @@ install_requires=[
 ]
 ```
 
-Install `flash-attn` via `pip install flash-attn --no-build-isolation`
+Install `flash-attn` via `pip install .whl`
+
+[flash-attn release page](https://github.com/Dao-AILab/flash-attention/releases)
 
 ## Usage
 
