@@ -204,7 +204,6 @@ def main(job_config: JobConfig):
     lr_schedulers = build_lr_schedulers(optimizers.optimizers, job_config)
 
     train_state = TrainState()
-
     # load initial checkpoint
     checkpoint = CheckpointManager(
         dataloader=dataloader,
